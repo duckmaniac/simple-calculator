@@ -45,7 +45,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Demonstration][demo-gif]](https://github.com/duckmaniac/simple-calculator)
+<a href="https://github.com/duckmaniac/simple-calculator">
+  <img src="assets/demo.gif" alt="Demonstration" width="300px">
+</a>
 
 Here's my first attempt at a C++ GUI project: a straightforward calculator using the SFML library. This project was a big step for me. I learned a lot, and some of its code even became the basis for my own small game engine. I hope it inspires others to start their projects too 🚀
 
@@ -139,8 +141,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Dmitrii Tarbaev - dmitry.tarbaev@gmail.com
 
-Project Link: [simple-calculator](https://github.com/duckmaniac/simple-calculator)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -159,10 +159,7 @@ Project Link: [simple-calculator](https://github.com/duckmaniac/simple-calculato
 [cmake]: https://img.shields.io/static/v1?style=for-the-badge&message=CMake&color=064F8C&logo=CMake&logoColor=FFFFFF&label=
 [boost]: https://img.shields.io/badge/Boost-%2300599C.svg?style=for-the-badge&logoColor=white
 [sfml]: https://img.shields.io/static/v1?style=for-the-badge&message=SFML&color=222222&logo=SFML&logoColor=8CC445&label=
-
 [cpp-url]: https://cplusplus.com/
 [cmake-url]: https://cmake.org/
 [boost-url]: https://www.boost.org/
 [sfml-url]: https://www.sfml-dev.org/
-
-[demo-gif]: assets/demo.gif
