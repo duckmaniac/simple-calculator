@@ -1,0 +1,3 @@
+IDR_MAINFRAME ICON "assets/icon.ico"
+ID_IMAGE_ICON RCDATA "assets/icon.png"
+ID_FONT_MAIN RCDATA "assets/fonts/FjallaOne-Regular.ttf"
