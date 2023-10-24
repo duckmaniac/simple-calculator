@@ -78,6 +78,7 @@ Features:
 
 Before you start your calculating journey, ensure:
 
+* Project has some windows-specific code, so you need Windows to build and run this.
 * You have a CMake to build a project.
 * The Boost 1.83.0 and SFML 2.6.0 library is set up and ready.
 
