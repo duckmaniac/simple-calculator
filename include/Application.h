@@ -12,8 +12,7 @@ private:
 	std::vector<std::shared_ptr<Object>> p_objects_;
 	std::vector<std::shared_ptr<Object>> p_clickable_objects_;
 
-	std::unique_ptr<sf::RenderWindow> p_window_;
-	sf::VideoMode video_mode_;
+	sf::RenderWindow window_;
 	sf::Event event_;
 	EventHandler p_event_handler_;
 	sf::Vector2i mouse_position_;

@@ -41,9 +41,9 @@ void Button::update() {
 	}
 }
 
-void Button::render(sf::RenderWindow& p_window_) const {
-	p_window_.draw(shape_);
-	p_window_.draw(text_);
+void Button::render(sf::RenderWindow& window_) const {
+	window_.draw(shape_);
+	window_.draw(text_);
 }
 
 std::string Button::get_text() const {

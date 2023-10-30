@@ -5,12 +5,10 @@ Application::Application(
     int width, 
     int height,
     int fps_limit
-) : video_mode_{ sf::VideoMode(width, height) },
-    p_window_{ nullptr },
+) : window_{ sf::VideoMode(width, height), title, sf::Style::Titlebar | sf::Style::Close },
     event_{sf::Event()} {
 
-    p_window_ = std::make_unique<sf::RenderWindow>(video_mode_, title, sf::Style::Titlebar | sf::Style::Close);
-    p_window_->setFramerateLimit(fps_limit);
+    window_.setFramerateLimit(fps_limit);
 }
 
 void Application::update() {
@@ -23,29 +21,29 @@ void Application::update() {
 }
 
 void Application::render() {
-    p_window_->clear(Colors::WHITE);
+    window_.clear(Colors::WHITE);
     for (std::shared_ptr<Object> object : p_objects_) {
-        object->render(*p_window_);
+        object->render(window_);
     }
-    p_window_->display();
+    window_.display();
 }
 
 void Application::update_events() {
     // Event polling.
-    while (p_window_->pollEvent(event_)) {
+    while (window_.pollEvent(event_)) {
         if (p_event_handler_) p_event_handler_(event_);
         switch (event_.type) {
 
             // Process window closing.
             case sf::Event::Closed:
-                p_window_->close();
+                window_.close();
                 break;
 
             // Process pressed keys.
             case sf::Event::KeyPressed:
                 switch (event_.key.code) {
                 case sf::Keyboard::Escape:
-                    p_window_->close();
+                    window_.close();
                     break;
                 }
 
@@ -73,7 +71,7 @@ void Application::update_events() {
 }
 
 void Application::update_mouse_position() {
-    mouse_position_ = sf::Mouse::getPosition(*p_window_);
+    mouse_position_ = sf::Mouse::getPosition(window_);
 }
 
 void Application::start() {
@@ -84,7 +82,7 @@ void Application::start() {
 }
 
 const bool Application::is_running() const {
-    return p_window_->isOpen();
+    return window_.isOpen();
 }
 
 void Application::add_object(std::shared_ptr<Object> object) {
@@ -105,5 +103,5 @@ void Application::add_event_handler(EventHandler p_event_handler) {
 }
 
 void Application::set_icon(const sf::Image& icon) {
-    p_window_->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    window_.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }

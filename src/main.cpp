@@ -104,7 +104,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszA
 				click_handler->on_mouse_pressed = [item, display]() {
 					try {
 						big_float answer = Calculator::calculate(display->get_text());
-						display->set_text(answer.str());
+						display->set_text(answer.str().substr(0, PRECISION));
 					}
 					catch (const std::exception) {
 						display->show_error();

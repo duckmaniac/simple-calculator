@@ -23,8 +23,8 @@ public:
     virtual void update() = 0;
 
     // Renders the object.
-    // @param p_window_: The RenderWindow object where the object will be drawn.
-    virtual void render(sf::RenderWindow& p_window_) const = 0;
+    // @param window_: The RenderWindow object where the object will be drawn.
+    virtual void render(sf::RenderWindow& window_) const = 0;
 
     // Calculates the boundary of the object.
     // @return coordinates of the left-upper corner and the right-bottom corner of the bounding box.

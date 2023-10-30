@@ -60,9 +60,9 @@ void InputField::update() {
 	}
 };
 
-void InputField::render(sf::RenderWindow& p_window_) const {
-	p_window_.draw(shape_);
-	p_window_.draw(text_);
+void InputField::render(sf::RenderWindow& window_) const {
+	window_.draw(shape_);
+	window_.draw(text_);
 }
 
 void InputField::show_error() {
@@ -94,7 +94,7 @@ void InputField::add_character(const char character) {
 	std::string text_string = get_text();
 
 	// Hide the error message.
-	if (text_string == ERROR_MESSAGE) {
+	if (is_error_showing()) {
 		text_string = "";
 	}
 
@@ -118,7 +118,13 @@ void InputField::remove_last_character() {
 
 	// Remove last character.
 	if (!text_string.empty()) {
-		text_string.pop_back();
+		// Hide the error message.
+		if (is_error_showing()) {
+			text_string = "";
+		}
+		else {
+			text_string.pop_back();
+		}
 	}
 
 	// Adjust the font size.
@@ -128,4 +134,10 @@ void InputField::remove_last_character() {
 	}
 	text_.setCharacterSize(text_.getCharacterSize() - 1);
 	text_.setString(text_string);
+}
+
+bool InputField::is_error_showing()
+{
+	std::string text_string = get_text();
+	return text_string == ERROR_MESSAGE || text_string == "inf";
 }

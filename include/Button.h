@@ -30,8 +30,8 @@ public:
 	// Updates the button.
 	void update() override;
 
-	// Renders the button to the specified p_window_.
-	void render(sf::RenderWindow& p_window_) const override;
+	// Renders the button to the specified window_.
+	void render(sf::RenderWindow& window_) const override;
 
 	// Sets the shared font for all buttons.
 	static void set_font(sf::Font font);

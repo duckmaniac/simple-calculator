@@ -36,7 +36,7 @@ public:
 	~InputField() override = default;
 
 	void update() override;
-	void render(sf::RenderWindow& p_window_) const override;
+	void render(sf::RenderWindow& window_) const override;
 
 	static void set_font(sf::Font font);
 	void show_error();
@@ -47,6 +47,8 @@ public:
 	// Entering into the field occurs character by character.
 	void add_character(const char character);
 	void remove_last_character();
+
+	bool is_error_showing();
 };
 
 #endif // INPUT_FIELD_H
